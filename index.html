@@ -1,0 +1,28 @@
+<h1>Realtime BitcoinSV Nodes</h1>
+<p id='screen'></p>
+
+
+
+<script>
+var screen = document.getElementById('screen')
+
+const onscreen = (data) => {
+	screen.insertAdjacentHTML('afterend', '<pre>' + data + '</pre>')
+}
+
+const zxhost = 'http://150.109.49.109:8888'
+
+// websocket
+// var ws = new WebSocket('ws://localhost:8080/');
+// ws.onmessage = function(event) {
+// 	screen.insertAdjacentHTML('afterend', '<p>' + event.data + '</p>');
+// };
+
+// fetch
+fetch(zxhost)
+  .then((res) => res.text())
+	.then((html) => {
+		onscreen(html)
+	})
+</script>
+
